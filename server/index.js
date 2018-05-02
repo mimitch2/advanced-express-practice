@@ -34,26 +34,35 @@ app.get("/contacts",function (req,res) {
 });
 
 
+
+
+
+const findObject = (arr, key, data) => {
+  return arr.find((index) => {
+    return index[key] === data;
+  });
+};
+
+
 app.get("/comments/:id",function (req,res) {
   const id = Number(req.params.id);
-  const result = comments.find((index) => {
-    return index["_id"] === id;
-  });
-  return res.json(result);
+  return res.json(findObject(comments, "_id", id));
 });
 
 
-  
 app.get("/products/:id",function (req,res) {
-  return res.json(products);
+  const id = Number(req.params.id);
+  return res.json(findObject(products, "_id", id));
 });
   
 app.get("/vehicles/:id",function (req,res) {
-  return res.json(vehicles);
+  const id = Number(req.params.id);
+  return res.json(findObject(vehicles, "_id", id));
 });
   
 app.get("/contacts/:id",function (req,res) {
-  return res.json(contacts);
+  const id = Number(req.params.id);
+  return res.json(findObject(contacts, "_id", id));
 });
 
   
