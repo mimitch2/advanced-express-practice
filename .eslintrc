@@ -221,9 +221,9 @@
         "react/jsx-pascal-case": ["error", {"allowAllCaps": false}],
         "react/jsx-space-before-closing": [0, "never"],
         "react/jsx-tag-spacing" : [ "error", {
-          closingSlash : "never",
-          beforeSelfClosing : "always",
-          afterOpening : "never",
+          "closingSlash" : "never",
+          "beforeSelfClosing" : "always",
+          "afterOpening" : "never"
         }],
         "jsx-quotes": [2, "prefer-double"],
         "react/jsx-boolean-value": 2,
