@@ -1,10 +1,15 @@
 const express = require("express");
 const app = express();
+const bodyParser = require("body-parser");
 const comments = require("./comments");
 const products = require("./products");
 const vehicles = require("./vehicles");
 const contacts = require("./contacts");
 
+app.use(bodyParser.json());
+
+const ContactsRoutes = require("./routes/ContactsRoutes");
+app.use(ContactsRoutes);
 
 app.listen(3001, (err) => {
   if (err) {
@@ -39,6 +44,7 @@ const findObject = (arr, key, data) => {
     return index[key] === data;
   });
 };
+// arr.find(arr=>blah[_id] == req.params.ide
 
 app.get("/comments/:id",function (req,res) {
   const id = Number(req.params.id);
@@ -63,24 +69,28 @@ app.get("/contacts/:id",function (req,res) {
 
 
 // <-----------post something------------->
-const postSomething = (arr) => {
-  return arr.push({name: "Mike"});
+const postSomething = (arr, req) => {
+  return arr.push(req.body);
 };
 
+
+
 app.post("/comments",function (req,res) {
-  return res.json(postSomething(comments));
+  return res.json(postSomething(comments, req));
 });
 
 app.post("/products",function (req,res) {
-  return res.json(postSomething(products));
+  return res.json(postSomething(products, req));
 });
 
+// req.body should get the json sent from client using bodyParser
+
 app.post("/vehicles",function (req,res) {
-  return res.json(postSomething(vehicles));
+  return res.json(postSomething(vehicles, req));
 });
 
 app.post("/contacts",function (req,res) {
-  return res.json(postSomething(contacts));
+  return res.json(postSomething(contacts, req));
 });
   
 
