@@ -22,36 +22,6 @@ app.listen(3001, (err) => {
 
 
 
-// <-----------find specific id------------->
-const findObject = (arr, key, data) => {
-  return arr.find((index) => {
-    return index[key] === data;
-  });
-};
-// arr.find(arr=>blah[_id] == req.params.ide
-
-app.get("/comments/:id",function (req,res) {
-  const id = Number(req.params.id);
-  return res.json(findObject(comments, "_id", id));
-});
-
-app.get("/products/:id",function (req,res) {
-  const id = Number(req.params.id);
-  return res.json(findObject(products, "_id", id));
-});
-  
-app.get("/vehicles/:id",function (req,res) {
-  const id = Number(req.params.id);
-  return res.json(findObject(vehicles, "_id", id));
-});
-  
-app.get("/contacts/:id",function (req,res) {
-  const id = Number(req.params.id);
-  return res.json(findObject(contacts, "_id", id));
-});
-
-
-
 // <-----------post something------------->
 const postSomething = (arr, req) => {
   return arr.push(req.body);
