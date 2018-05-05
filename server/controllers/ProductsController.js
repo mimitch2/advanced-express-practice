@@ -1,5 +1,8 @@
+const products = require("../products");
+
+
 module.exports.list = function list(request, response) {
-  return response.json([]);
+  return response.json(products);
 };
 module.exports.show = function show(request, response) {
   return response.json({theId: request.params.id});

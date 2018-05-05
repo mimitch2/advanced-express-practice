@@ -1,5 +1,4 @@
-const state = require("./state");
-const comments = state.comments;
+const comments = require("../comments");
 
 
 module.exports.list = function list(request, response) {

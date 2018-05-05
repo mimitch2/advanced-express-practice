@@ -1,40 +1,24 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const comments = require("./comments");
-const products = require("./products");
-const vehicles = require("./vehicles");
-const contacts = require("./contacts");
-
 app.use(bodyParser.json());
 
 const ContactsRoutes = require("./routes/ContactsRoutes");
 app.use(ContactsRoutes);
+const CommentsRoutes = require("./routes/CommentsRoutes");
+app.use(CommentsRoutes);
+const ProductsRoutes = require("./routes/ProductsRoutes");
+app.use(ProductsRoutes);
+const VehiclesRoutes = require("./routes/VehiclesRoutes");
+app.use(VehiclesRoutes);
 
 app.listen(3001, (err) => {
   if (err) {
     return console.log("Error", err);
   } 
-  console.log("Web server is now running on port 3001");
+  console.log("Web server is now running on port 3001`");
 });
 
-
-// <-----------get full arrays------------->
-app.get("/comments",function (req,res) {
-  return res.json(comments);
-});
-
-app.get("/products",function (req,res) {
-  return res.json(products);
-});
-
-app.get("/vehicles",function (req,res) {
-  return res.json(vehicles);
-});
-
-app.get("/contacts",function (req,res) {
-  return res.json(contacts);
-});
 
 
 

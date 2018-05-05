@@ -1,6 +1,8 @@
 
+const contacts = require("../contacts");
+
 module.exports.list = function list(request, response) {
-  return response.json([]);
+  return response.json(contacts);
 };
 module.exports.show = function show(request, response) {
   return response.json({theId: request.params.id});
