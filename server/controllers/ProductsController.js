@@ -9,7 +9,7 @@ module.exports.show = function show(request, response) {
   return response.json(products.find(index => index["_id"] === id));
 };
 module.exports.create = function create(request, response) {
-  return response.json({});
+  return response.json(products.push(request.body));
 };
 module.exports.update = function update(request, response) {
   return response.json({theId: request.params.id});

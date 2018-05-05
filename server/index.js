@@ -20,34 +20,6 @@ app.listen(3001, (err) => {
 });
 
 
-
-
-// <-----------post something------------->
-const postSomething = (arr, req) => {
-  return arr.push(req.body);
-};
-
-
-
-app.post("/comments",function (req,res) {
-  return res.json(postSomething(comments, req));
-});
-
-app.post("/products",function (req,res) {
-  return res.json(postSomething(products, req));
-});
-
-// req.body should get the json sent from client using bodyParser
-
-app.post("/vehicles",function (req,res) {
-  return res.json(postSomething(vehicles, req));
-});
-
-app.post("/contacts",function (req,res) {
-  return res.json(postSomething(contacts, req));
-});
-  
-
 // <-----------handle bad request------------->
 app.use(function (request,response) {
   response.send("NOPE!!!!");
