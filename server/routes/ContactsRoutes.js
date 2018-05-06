@@ -4,10 +4,10 @@ const {list,show,create,update,remove} = require( "../controllers/ContactControl
 
 
 router.get("/contacts", list);
-router.get("/contacts/:id", show);
+router.get("/contact/:id", show);
 router.post("/contacts", create);
-router.put("/contacts/:id", update);
-router.delete("/contacts/:id", remove);
+router.put("/contact/:id", update);
+router.delete("/contact/:id", remove);
 
 module.exports = router;
 
