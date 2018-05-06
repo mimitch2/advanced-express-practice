@@ -8,7 +8,11 @@ module.exports.show = function show(request, response) {
   return response.json(vehicles.find(index => index["_id"] === id));
 };
 module.exports.create = function create(request, response) {
-  return response.json(vehicles.push(request.body));
+  const input = request.body;
+  const newObj = 
+    {_id: vehicles.length + 1, imgUrl: null, year: input.year, make: input.make, 
+      model: input.model, price: null, km: null, miles: null, fuel: null, city: null, isNew: null};
+  return response.json(vehicles.push(newObj));
 };
 module.exports.update = function update(request, response) {
   return response.json({theId: request.params.id});

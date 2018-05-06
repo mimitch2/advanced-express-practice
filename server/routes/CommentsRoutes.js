@@ -4,9 +4,9 @@ const {list,show,create,update,remove} = require( "../controllers/CommentsContro
 
 
 router.get("/comments", list);
-router.get("/comments/:id", show);
+router.get("/comment/:id", show);
 router.post("/comments", create);
-router.put("/comments/:id", update);
-router.delete("/comments/:id", remove);
+router.put("/comment/:id", update);
+router.delete("/comment/:id", remove);
 
 module.exports = router;

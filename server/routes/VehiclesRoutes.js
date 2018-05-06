@@ -4,9 +4,9 @@ const {list,show,create,update,remove} = require( "../controllers/VehiclesContro
 
 
 router.get("/vehicles", list);
-router.get("/vehicles/:id", show);
+router.get("/vehicle/:id", show);
 router.post("/vehicles", create);
-router.put("/vehicles/:id", update);
-router.delete("/vehicles/:id", remove);
+router.put("/vehicle/:id", update);
+router.delete("/vehicle/:id", remove);
 
 module.exports = router;

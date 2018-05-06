@@ -9,7 +9,11 @@ module.exports.show = function show(request, response) {
   return response.json(products.find(index => index["_id"] === id));
 };
 module.exports.create = function create(request, response) {
-  return response.json(products.push(request.body));
+  const input = request.body;
+  const newObj = 
+    {_id: products.length + 1, name: input.name, description: input.description, 
+      reviews: [], rating: null, imgUrl: null, price: null, category: null};
+  return response.json(products.push(newObj));
 };
 module.exports.update = function update(request, response) {
   return response.json({theId: request.params.id});
