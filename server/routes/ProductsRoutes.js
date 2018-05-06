@@ -4,9 +4,9 @@ const {list,show,create,update,remove} = require( "../controllers/ProductsContro
 
 
 router.get("/products", list);
-router.get("/products/:id", show);
+router.get("/product/:id", show);
 router.post("/products", create);
-router.put("/products/:id", update);
-router.delete("/products/:id", remove);
+router.put("/product/:id", update);
+router.delete("/product/:id", remove);
 
 module.exports = router;
