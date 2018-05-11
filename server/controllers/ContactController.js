@@ -1,5 +1,5 @@
 
-const contacts = require("../contacts");
+const Contact = require( "../models/contacts.js");
 
 module.exports.list = function list(request, response) {
   return response.json(contacts);
