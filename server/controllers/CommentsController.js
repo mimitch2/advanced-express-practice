@@ -21,6 +21,7 @@ module.exports.show = function show(request, response) {
   const id = Number(request.params.id);
   return response.json(comments.find(index => index["_id"] === id));
 };
+
 module.exports.create = function create(request, response) {
   const newComment = new Comment(
     {_id: comments.length + 1, body: request.body.body, postId: 1}
