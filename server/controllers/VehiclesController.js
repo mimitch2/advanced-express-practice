@@ -12,7 +12,7 @@ module.exports.list = function list(request, response) {
   vehicles = [...vehiclesArr];
   return response.json(vehicles);
 });
-  console.log(vehicles);
+  // console.log(vehicles);
 };
 
 module.exports.show = function show(request, response) {

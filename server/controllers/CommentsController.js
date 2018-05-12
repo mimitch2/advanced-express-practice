@@ -2,36 +2,42 @@
 const Comment = require( "../models/comments.js");
 let comments = [];
 
-Comment.find({}).exec()
-.then(commentsArr => {
-  comments = [...commentsArr];
-});
+// fix how do I do this without reassigning comments??
 
-module.exports.list = function list(request, response) {
-  Comment.find({}).exec()
-.then(commentsArr => {
-  comments = [...commentsArr];
-  return response.json(comments);
-});
-  console.log(comments);
- 
-};
-
-module.exports.show = function show(request, response) {
-  const id = Number(request.params.id);
-  return response.json(comments.find(index => index["_id"] === id));
-};
-
-module.exports.create = function create(request, response) {
-  const newComment = new Comment(
-    {_id: comments.length + 1, body: request.body.body, postId: 1}
-      );
-  newComment.save().then(savedComment => {
-    comments.push(savedComment);
-    return response.json(savedComment);
+const updateData = () => {
+  Comment.find({}).exec().then(commentsArr => {
+    comments = commentsArr;
+    console.log(comments);
   });
 };
 
+updateData();
+
+module.exports.list = function list(request, response) {
+  Comment.find({}).exec().then(commentsArr => {
+    return response.json(commentsArr);
+  });
+  // console.log(comments);
+};
+
+module.exports.show = function show(request, response) {
+  const id = request.params.id;
+  Comment.find({_id: id}).exec().then(commentRes => {
+    return response.json(commentRes[0]);
+  });
+};
+
+module.exports.create = function create(request, response) {
+  updateData();
+  const id = comments[comments.length - 1]._id + 1;  
+  const newComment = new Comment(
+    {_id: id , body: request.body.body, postId: 1}
+      );
+  newComment.save().then(savedComment => {
+    updateData();
+    return response.json(savedComment);
+  });
+};
 
 module.exports.update = function update(request, response) {
   return response.json({theId: request.params.id});

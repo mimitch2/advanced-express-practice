@@ -17,7 +17,6 @@ const schema = new mongoose.Schema({
     require: false,
     type: String
   }
-
 });
 
 module.exports = mongoose.model("Contact", schema);

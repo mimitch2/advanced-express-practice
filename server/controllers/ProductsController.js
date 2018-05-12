@@ -13,7 +13,7 @@ module.exports.list = function list(request, response) {
   products = [...productsArr];
   return response.json(products);
 });
-  console.log(products);
+  // console.log(products);
  
 };
 

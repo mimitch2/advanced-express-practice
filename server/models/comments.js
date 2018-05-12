@@ -13,7 +13,6 @@ const schema = new mongoose.Schema({
     require: false,
     type: Number
   }
-
 });
 
 module.exports = mongoose.model("Comment", schema);

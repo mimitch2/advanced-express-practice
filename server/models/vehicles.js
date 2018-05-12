@@ -17,7 +17,6 @@ const schema = new mongoose.Schema({
   model: {
     require: true,
     type: String
-
   }
 });
 
