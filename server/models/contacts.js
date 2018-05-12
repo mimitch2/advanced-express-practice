@@ -10,7 +10,7 @@ const schema = new mongoose.Schema({
     type: String
   },
   occupation: {
-    require: false,
+    require: true,
     type: String
   },
   avatar: {
